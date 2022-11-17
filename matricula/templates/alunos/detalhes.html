@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Detalhes
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="offset-1 col-10 dashboard-content">
+        {% for student in students %}
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered border-primary" style="white-space: nowrap; width: 100%;">
+              <thead>
+                <tr>
+                  <th scope="col">Nome Completo</th>
+                  <th scope="col">Contacto</th>
+                  <th scope="col">Classe</th>
+                  <th scope="col">Nº de senha</th>
+                  <th scope="col">Senha passada</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{student.nome}}</td>
+                  <td>{{student.contacto}}</td>
+                  <td>{{student.classe}}</td>
+                  <td>{{student.nr_de_senha}}</td>
+                  <td>{{student.senha_passada}}</td>
+                </tr>
+              </tbody>
+          
+            </table>
+          </div>
+         <h1></h1>
+        {% endfor %}
+    </div>
+{% endblock content %}
+    

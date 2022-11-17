@@ -7,7 +7,7 @@ from matricula.forms import AlunoForm
 
 @login_required
 def studentes_list(request):
-    students_list = Aluno.objects.all()
+    students_list = Aluno.objects.all().order_by('-created_at')
     paginator = Paginator(students_list, 6)
     page = request.GET.get('page')
     alunos = paginator.get_page(page)
@@ -15,6 +15,14 @@ def studentes_list(request):
         'alunos': alunos
     }
     return render(request, template_name='alunos/alunos.html', context=context)
+
+@login_required
+def see_student(request, id):
+    students = Aluno.objects.filter(id=id)
+    context = {
+        'students': students
+    }
+    return render(request, template_name='alunos/detalhes.html', context=context)
 
 @login_required
 def new_student(request):
