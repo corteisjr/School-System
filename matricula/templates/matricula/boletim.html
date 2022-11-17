@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Boletim
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="offset-1 col-10 dashboard-content">
+        {% for student in students %}
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered border-primary" style="white-space: nowrap; width: 100%;">
+              <thead>
+                <tr>
+                  <th scope="col">Processo Nº</th>
+                  <th scope="col">Nome Completo</th>
+                  <th scope="col">Sexo</th>
+                  <th scope="col">Nome do pai</th>
+                  <th scope="col">Nome da mãe</th>
+                  <th scope="col">Data de nascimento</th>
+                  <th scope="col">Local de nascimento</th>
+                  <th scope="col">Distrito</th>
+                  <th scope="col">Província</th>
+                  <th scope="col">BI Nº</th>
+                  <th scope="col">Cédula Nº</th>
+                  <th scope="col">Emissão</th>
+                  <th scope="col">Morada</th>
+                  <th scope="col">Bairro</th>
+                  <th scope="col">Telefone</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">{{student.processo_nr}}</th>
+                  <td>{{student.nome_completo}}</td>
+                  <td>{{student.sexo}}</td>
+                  <td>{{student.nome_do_pai}}</td>
+                  <td>{{student.nome_da_mae}}</td>
+                  <td>{{student.data_nascimento}}</td>
+                  <td>{{student.local_nascimento}}</td>
+                  <td>{{student.distrito}}</td>
+                  <td>{{student.provincia}}</td>
+                  <td>{{student.bi_nr}}</td>
+                  <td>{{student.cedula_nr}}</td>
+                  <td>{{student.emissao}}</td>
+                  <td>{{student.morada}}</td>
+                  <td>{{student.bairro}}</td>
+                  <td>{{student.telefone}}</td>
+
+                </tr>
+              </tbody>
+          
+            </table>
+          </div>
+         <h1></h1>
+        {% endfor %}
+    </div>
+{% endblock content %}
+    

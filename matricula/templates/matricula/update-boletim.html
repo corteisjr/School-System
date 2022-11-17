@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}
+    Actualizar Boletim
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+    <div class="dashboard-content col-10">
+        {% if messages %}
+        <ul class="messages" style="list-style: none;">
+            {% for message in messages%}
+                <li class="alert alert-danger alert-{{message.tags}}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6">
+                    {{ form.processo_nr | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.nome_completo | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.sexo | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.nome_do_pai | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.nome_da_mae | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.data_nascimento | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.local_nascimento | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.distrito | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.provincia | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.bi_nr | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.cedula_nr | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.emissao | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.morada | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.bairro | as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.telefone | as_crispy_field }}
+                </div>
+                <div class="col-10">
+                    <button type="submit" class="btn btn-primary mb-4">Actualizar</button>
+                   <a href="{% url 'boletim-list' %}" class="btn btn-danger mb-4">Cancelar</a>
+               </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+    

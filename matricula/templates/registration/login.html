@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock styles %}
+  
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h2 class="text-center text-dark mt-5">Escola Joel da Teresa Lisboa</h2>
+          <div class="my-5">
+                    {% if error %}
+                        <div class="alert alert-danger mt-3" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                     <p class="card-text">
+                        <form action="" method="post" class=" form-control card-body cardbody-color p-lg-5">
+                            {% csrf_token %}
+                            {{ form.username | as_crispy_field }}
+                            {{ form.password | as_crispy_field }}
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                     </p>   
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+{% comment %} {% block scripts %}
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock scripts %} {% endcomment %}
+{% endblock content %}

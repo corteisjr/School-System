@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Início
+{% endblock title %}
+ 
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+  
+
+{% block content %}
+<div class='card'>
+    <div class='card-header'>
+    <h2>Bem vindo(a) - {{request.user.username}}</h2>
+    </div>
+</div>
+{% endblock content %}
+    
+
+{% block scripts %}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock scripts %}
