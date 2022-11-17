@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}
+    Cadastrar - Aluno
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+    <div class="dashboard-content col-10">
+        {% if messages %}
+        <ul class="messages" style="list-style: none;">
+            {% for message in messages%}
+                <li class="alert alert-danger alert-{{message.tags}}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12">
+                    {{ form.nome | as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.contacto | as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.classe | as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.nr_de_senha | as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.senha_passada | as_crispy_field }}
+                </div>
+                <div class="col-10">
+                    <button type="submit" class="btn btn-primary mb-4">Salvar</button>
+                   <a href="{% url 'boletim-list' %}" class="btn btn-danger mb-4">Cancelar</a>
+               </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+    
